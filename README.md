@@ -1,50 +1,85 @@
-# React + TypeScript + Vite
+# R1-Web: Run DeepSeek R1 in Your Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Run DeepSeek R1 locally in your browser - no downloads, no servers, no GPU required. Pure browser-based inference that works anywhere.
 
-Currently, two official plugins are available:
+🔗 [Try it now](https://r1-web-test.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🚀 **100% Browser-Based**: Runs entirely in your web browser
+- 💻 **No Installation**: No downloads or setup required
+- 🔒 **Privacy-First**: All processing happens locally
+- 🌐 **Universal Access**: Works on any modern browser
+- 💾 **Multiple Models**: Choose from various quantized models:
+  - DeepSeek 1.5B Q2_K (753MB)
+  - DeepSeek 1.5B Q2_K_L (808MB)
+  - DeepSeek 1.5B Q3_K_M (924MB)
+  - DeepSeek 1.5B Q4_K_M (1.12GB)
+  - DeepSeek 1.5B Q5_K_M (1.29GB)
+  - DeepSeek 1.5B Q6_K (1.46GB)
+  - DeepSeek 1.5B Q8_0 (1.89GB)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## How It Works
 
-- Configure the top-level `parserOptions` property like this:
+R1-Web uses WebAssembly to run the DeepSeek R1 language model directly in your browser. The application:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Downloads the selected model
+2. Processes everything locally using your CPU
+3. Maintains chat history in browser storage
+4. Requires no backend servers or GPU acceleration
+
+## Configuration Options
+
+- **CPU Threads**: Adjust the number of processing threads
+- **Context Length**: Configure the context window size
+- **Temperature**: Control response randomness
+- **Cache**: Enable/disable response caching
+- **Chat History**: Save and manage conversation history
+
+## Technical Stack
+
+- React + TypeScript
+- Vite
+- TailwindCSS
+- WebAssembly (via wllama)
+- Zustand for state management
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Browser Requirements
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Modern browser with WebAssembly support
+- Sufficient RAM (recommended: 4GB+)
+- Active internet connection (for initial model download)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Privacy
+
+All processing happens locally in your browser. No data is sent to external servers, ensuring complete privacy of your conversations.
+
+## License
+
+MIT License
+
+## Acknowledgments
+
+- DeepSeek for the original R1 model
+- The wllama project for WebAssembly integration
+- All contributors and supporters
+
+---
+
+Made with ❤️ for the open-source AI community
