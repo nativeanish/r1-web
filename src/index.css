@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #111827;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+/* Custom slider styles */
+.slider-thumb {
+  width: 20px !important;
+  height: 20px !important;
+  background-color: #111827 !important;
+  border: 2px solid white !important;
+}
+
+.slider-track {
+  height: 4px !important;
+  background-color: #111827 !important;
+}
+
+/* Focus styles */
+input:focus,
+button:focus {
+  outline: 2px solid #111827;
+  outline-offset: -2px;
+}
+
+/* Chat input styles */
+form.flex input {
+  box-shadow: none !important;
+}
+
+form.flex input:focus {
+  outline: none;
+  border-color: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .slider-thumb {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .slider-track {
+    height: 3px !important;
+  }
+}
